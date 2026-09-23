@@ -1,5 +1,5 @@
 import React from 'react'
-import { MoreHorizontal } from 'lucide-react'
+import { VscEllipsis } from 'react-icons/vsc'
 import type { ActiveRightSidebarTab } from '@/store/slices/editor'
 import type { CheckStatus } from '../../../../shared/github/pull-request-types'
 import { cn } from '@/lib/utils'
@@ -81,7 +81,7 @@ export function TopActivityOverflowMenu({
               : moreTabsLabel
           }
         >
-          <MoreHorizontal size={16} />
+          <VscEllipsis size={16} />
           {hiddenItemStatus && (
             <div
               className={cn(
