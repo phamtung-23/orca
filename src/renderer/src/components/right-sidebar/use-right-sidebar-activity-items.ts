@@ -1,5 +1,14 @@
 import { useMemo } from 'react'
-import { Plug, Files, GitBranch, ListChecks, Workflow } from 'lucide-react'
+// Codicons (VS Code icon set, CC BY 4.0) via react-icons
+import {
+  VscFiles,
+  VscHistory,
+  VscTypeHierarchy,
+  VscGitPullRequest,
+  VscSourceControl,
+  VscChecklist,
+  VscPlug
+} from 'react-icons/vsc'
 import { useAppStore } from '@/store'
 import { useRepoById } from '@/store/selectors'
 import { isFolderRepo } from '../../../../shared/repo-kind'
@@ -14,7 +23,6 @@ import {
 } from '@/store/plugin-panels'
 import { useShortcutLabel } from '@/hooks/useShortcutLabel'
 import { translate } from '@/i18n/i18n'
-import { AgentSessionHistoryIcon } from './agent-session-history-icon'
 import type { ActivityBarItem } from './activity-bar-buttons'
 
 export type RightSidebarActivityItems = {
@@ -63,19 +71,19 @@ export function useRightSidebarActivityItems({
     () => [
       {
         id: 'explorer',
-        icon: Files,
+        icon: VscFiles,
         title: translate('auto.components.right.sidebar.index.8bc2bbc3a0', 'Explorer'),
         shortcut: explorerShortcut === 'Unassigned' ? '' : explorerShortcut
       },
       {
         id: 'vault',
-        icon: AgentSessionHistoryIcon,
+        icon: VscHistory,
         title: translate('auto.components.right.sidebar.index.aiVaultSessionHistory', 'Agents'),
         shortcut: ''
       },
       {
         id: 'workspaces',
-        icon: Workflow,
+        icon: VscTypeHierarchy,
         title: translate(
           'auto.components.right.sidebar.index.folderWorkspaces',
           'Attached worktrees'
@@ -85,28 +93,28 @@ export function useRightSidebarActivityItems({
       },
       {
         id: 'pr-checks',
-        icon: ListChecks,
+        icon: VscGitPullRequest,
         title: translate('auto.components.right.sidebar.index.parentPrChecks', 'PR Checks'),
         shortcut: '',
         folderOnly: true
       },
       {
         id: 'source-control',
-        icon: GitBranch,
+        icon: VscSourceControl,
         title: translate('auto.components.right.sidebar.index.0314901467', 'Source Control'),
         shortcut: sourceControlShortcut === 'Unassigned' ? '' : sourceControlShortcut,
         gitOnly: true
       },
       {
         id: 'checks',
-        icon: ListChecks,
+        icon: VscChecklist,
         title: translate('auto.components.right.sidebar.index.83a10e3c44', 'Checks'),
         shortcut: checksShortcut === 'Unassigned' ? '' : checksShortcut,
         gitOnly: true
       },
       {
         id: 'ports',
-        icon: Plug,
+        icon: VscPlug,
         title: translate('auto.components.right.sidebar.index.441733b630', 'Ports'),
         shortcut: portsShortcut === 'Unassigned' ? '' : portsShortcut,
         sshOnly: true
